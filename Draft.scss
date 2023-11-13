@@ -1,0 +1,29 @@
+// настройка стилей для переключателя кнопок
+.inpit_container {
+  & label:hover {
+    background-color: black;
+    color: white;
+  }
+
+  & input:checked ~ label {
+    background-color: plum;
+    color: white;
+  }
+}
+
+// настройка стилей для строки инпута
+& input {
+  outline: none;
+  border: none; // тут или none или задаём сами (если нету контейнера)
+  background-color: transparent; // тут или транспарент или задаём сами (если нету контейнера)
+
+  &::placeholder {
+  }
+}
+
+& svg {
+}
+
+& input:focus ~ svg {
+  stroke: white;
+}
