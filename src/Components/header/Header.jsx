@@ -1,22 +1,22 @@
-import "./header.css";
+import s from "./header.module.css";
 
 const Header = ({ onSwitchPage }) => {
   return (
-    <header className="header">
-      <div className="header_container">
-        <div className="left_container">
-          <div className="logo" onClick={onSwitchPage}>
+    <header className={s.header}>
+      <div className={s.header_container}>
+        <div className={s.left_container}>
+          <div className={s.logo} onClick={onSwitchPage}>
             <img src="logo.png"></img>
           </div>
         </div>
-        <div className="right_container">
-          <div className="button1">Movies</div>
-          <div className="button2">TV Shows</div>
-          <div className="button3">
+        <div className={s.right_container}>
+          <div className={s.button1}>Movies</div>
+          <div className={s.button2}>TV Shows</div>
+          <div className={s.button3}>
             Suggest me
             <div>
               <svg
-                className="arrow"
+                className={s.arrow}
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"

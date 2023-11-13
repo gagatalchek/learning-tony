@@ -1,7 +1,7 @@
-import "./movie-details.css";
 import { movies } from "../../movies";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import s from "./movie_details.module.scss";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -15,22 +15,22 @@ const MovieDetails = () => {
   }, [params]);
 
   return (
-    <div className="body_2">
-      <div className="poster">
+    <div className={s.body_2}>
+      <div className={s.poster}>
         <img src="poster.png" />
-        <div className="mid_container">
-          <div className="small_container">
+        <div className={s.mid_container}>
+          <div className={s.small_container}>
             <div>MaileHereko</div>
-            <div className="space">/</div>
+            <div className={s.space}>/</div>
             <div>Movies</div>
           </div>
-          <div className="avengers">Avengers: Endgame</div>
+          <div className={s.avengers}>Avengers: Endgame</div>
         </div>
       </div>
 
-      <div className="photo_img">
+      <div className={s.photo_img}>
         <img src="photo_img.png" />
-        <div className="second_column">
+        <div className={s.second_column}>
           <div>
             <h1>Part of the journey is the end.</h1>
           </div>
@@ -44,7 +44,7 @@ const MovieDetails = () => {
               store.
             </h2>
           </div>
-          <div className="div_star">
+          <div className={s.div_star}>
             {/* <img src="star.png" /> */}
             <svg
               width="16"
@@ -63,21 +63,21 @@ const MovieDetails = () => {
             </svg>
             8.3
           </div>
-          <div className="small_text">
+          <div className={s.small_text}>
             Type
-            <div className="big_text">Movie</div>
+            <div className={s.big_text}>Movie</div>
           </div>
-          <div className="small_text">
+          <div className={s.small_text}>
             Release Date
-            <div className="big_text">2019-04-24</div>
+            <div className={s.big_text}>2019-04-24</div>
           </div>
-          <div className="small_text">
+          <div className={s.small_text}>
             Run time
-            <div className="big_text">181 min</div>
+            <div className={s.big_text}>181 min</div>
           </div>
-          <div className="small_text">
+          <div className={s.small_text}>
             Genres
-            <div className="big_text">Adventure, Science Fiction, Action</div>
+            <div className={s.big_text}>Adventure, Science Fiction, Action</div>
           </div>
         </div>
       </div>
