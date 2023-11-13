@@ -143,12 +143,13 @@ console.log(result);
 const App = () => {
   const [isShowHomePage, setIsHomeShowPage] = useState(true);
 
-  const handleSwitchPage = () => {
-    setIsHomeShowPage((prev) => !prev);
-  };
+  // const handleSwitchPage = () => {
+  //   setIsHomeShowPage((prev) => !prev);
+  // };
   return (
     <div className="App">
-      <Header onSwitchPage={handleSwitchPage} />
+      <Header // onSwitchPage={handleSwitchPage}
+      />
       <div className="container">
         <Router />
         {/* {isShowHomePage ? (

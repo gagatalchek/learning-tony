@@ -197,4 +197,6 @@
 
 .App {
   background-color: #12182b;
+  background-image: url(/public/background.png);
+  background-size: cover;
 }
