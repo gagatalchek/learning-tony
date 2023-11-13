@@ -2,6 +2,7 @@ import { movies } from "../../movies";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import s from "./movie_details.module.scss";
+import { card_details } from "../../movies";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -9,9 +10,8 @@ const MovieDetails = () => {
   const params = useParams();
 
   useEffect(() => {
-    const movie = movies.find((el) => el.id === Number(params.id));
-
-    console.log({ movie });
+    const _movie = card_details.find((el) => el.id === Number(params.id));
+    setMovie(_movie);
   }, [params]);
 
   return (
@@ -20,29 +20,22 @@ const MovieDetails = () => {
         <img src="poster.png" />
         <div className={s.mid_container}>
           <div className={s.small_container}>
-            <div>MaileHereko</div>
+            <div>{movie.upper1}</div>
             <div className={s.space}>/</div>
-            <div>Movies</div>
+            <div>{movie.upper2}</div>
           </div>
-          <div className={s.avengers}>Avengers: Endgame</div>
+          <div className={s.avengers}>{movie.title}</div>
         </div>
       </div>
 
       <div className={s.photo_img}>
-        <img src="photo_img.png" />
+        <img src={movie.img} />
         <div className={s.second_column}>
           <div>
-            <h1>Part of the journey is the end.</h1>
+            <h1>{movie.title2}</h1>
           </div>
           <div>
-            <h2>
-              After the devastating events of Avengers: Infinity War, the
-              universe is in ruins due to the efforts of the Mad Titan, Thanos.
-              With the help of remaining allies, the Avengers must assemble once
-              more in order to undo Thanos' actions and restore order to the
-              universe once and for all, no matter what consequences may be in
-              store.
-            </h2>
+            <h2>{movie.description}</h2>
           </div>
           <div className={s.div_star}>
             {/* <img src="star.png" /> */}
@@ -61,23 +54,23 @@ const MovieDetails = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            8.3
+            {movie.rate}
           </div>
           <div className={s.small_text}>
             Type
-            <div className={s.big_text}>Movie</div>
+            <div className={s.big_text}>{movie.type}</div>
           </div>
           <div className={s.small_text}>
             Release Date
-            <div className={s.big_text}>2019-04-24</div>
+            <div className={s.big_text}>{movie.release_date}</div>
           </div>
           <div className={s.small_text}>
             Run time
-            <div className={s.big_text}>181 min</div>
+            <div className={s.big_text}>{movie.run_time}</div>
           </div>
           <div className={s.small_text}>
             Genres
-            <div className={s.big_text}>Adventure, Science Fiction, Action</div>
+            <div className={s.big_text}>{movie.genres}</div>
           </div>
         </div>
       </div>

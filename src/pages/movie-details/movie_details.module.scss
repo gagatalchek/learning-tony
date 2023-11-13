@@ -133,10 +133,16 @@
   backdrop-filter: blur(12px);
 }
 .photo_img {
+  & img {
+    width: 480px;
+    height: 720px;
+  }
+}
+.photo_img {
+  object-fit: cover;
   display: flex;
   margin-right: 80px;
   margin-left: 80px;
-  margin-bottom: 160 px;
   padding-bottom: 160px;
 }
 .photo_img img {
@@ -146,6 +152,8 @@
 .second_column {
   display: flex;
   flex-direction: column;
+  width: max-content;
+  height: 720px;
   gap: 24px;
   margin-left: 80px;
 }
@@ -205,4 +213,9 @@
 }
 .body_2 {
   margin-top: 140px;
+}
+
+.counter {
+  font-size: 20px;
+  color: white;
 }
