@@ -4,10 +4,48 @@ import s from "./home.module.scss";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { movies } from "../../movies";
+import { IMG_PATH, getMovie } from "../../services/api-movies";
 
 const Home = () =>
   //{ onSwitchPage }
   {
+    // const [inputValue, setInputValue] = useState("Hello");
+    // const getMovies = async (movieName) => {
+    //   try {
+    //     const response = await getMovie(movieName);
+    //     const data = await response.json();
+    //     console.log("getMovies", data);
+    //   } catch (error) {
+    //     console.log("Catch error :", error);
+    //   }
+    // };
+
+    // useEffect(() => {
+    //   getMovies(inputValue);
+    // }, [inputValue]);
+
+    // const handleChange = (event) => {
+    //   const value = event.target.value;
+    //   setInputValue(value);
+    // };
+
+    const [movie, setMovies] = useState([]);
+
+    const getMovies = async (movieName) => {
+      try {
+        const response = await getMovie(movieName);
+        const data = await response.json();
+        console.log("getMovies :", data.results);
+        setMovies(data.results);
+      } catch (error) {
+        console.log("Catch error :", error);
+      }
+    };
+
+    useEffect(() => {
+      getMovies();
+    }, []);
+
     return (
       <div className={s.body}>
         <div className={s.h1_h2}>
@@ -68,19 +106,22 @@ const Home = () =>
           All<span> (120)</span>
         </div>
         <ul className={s.list}>
-          {movies.map((item, index) => {
+          {movie.map((item, index) => {
             return (
               <li
                 key={item.id}
                 //onClick={onSwitchPage}
               >
-                <Link to={`/details/${item.id}`}>
+                <Link className={s.link_home} to={`/details/${item.id}`}>
                   <div className={s.container_cards}>
                     <div className={s.star}>
                       <img src="star.png" />
-                      <span>{item.rate}</span>
+                      <span>{item.vote_average}</span>
                     </div>
-                    <img src={item.img} className={s.image_border} />
+                    <img
+                      src={`${IMG_PATH}${item.poster_path}`}
+                      className={s.image_border}
+                    />
                     <div className={s.title}>{item.title}</div>
                   </div>
                 </Link>
