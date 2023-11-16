@@ -39,3 +39,12 @@ import s from "./module.scss";
 // а также наш файл scss обьязательно переименовуем в название.module.scss
 
 <div className={s.container}>Aboba</div>; // где container будем названием моего компонента
+
+// функция для прослушивания нашего инпута
+const handleChangeName = (event) => {
+  console.log("Наш лог", event.target.value); // event.target.value будет выводить в нашу консоль, то что мы пишем там
+};
+
+// что пишем в тег инпуту
+<input onChange={handleChangeName} type="text" />; // при изменении инпута, вызывается handleChangeName
+// type="text" - тип вывода инпута
